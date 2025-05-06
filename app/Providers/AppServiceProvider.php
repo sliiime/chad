@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Providers;
+
+use App\Services\UserServiceContract;
+use App\Services\UserService;
+
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+
+    public $bindings = [
+        UserServiceContract::class => UserService::class,
+    ];
+
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+    }
+}
