@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Exceptions\Service\UniquenessViolationException;
+use App\Exceptions\Services\UniquenessViolationException;
 use App\Models\User;
 use App\Services\UserServiceContract;
 use Illuminate\Support\Facades\Hash;
@@ -51,13 +51,13 @@ class UserService implements UserServiceContract {
         return $user;
     }
 
-    protected function uniqueEmailValidation($email){
+    protected function uniqueEmailValidation(string $email){
         if (!$this->isEmailUnique($email)){
             throw new UniquenessViolationException('email', $email);
         }
     }
 
-    protected function uniqueUsernameValidation($username){
+    protected function uniqueUsernameValidation(string $username){
         if (!$this->isUsernameUnique($username)){
             throw new UniquenessViolationException('username', $username);
         }
