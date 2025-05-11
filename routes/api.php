@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,15 @@ use App\Http\Controllers\UserController;
 /*     return $request->user(); */
 /* }); */
 
-Route::get('/user',      [UserController::class, 'index']);
-Route::get('/user/{id}', [UserController::class, 'show']);
+/* User */
+
 Route::post('/user',     [UserController::class, 'store']);
-Route::put('/user/{id}', [UserController::class, 'update']);
+
+Route::middleware('chad:api')->group(function(){
+    Route::get('/user',      [UserController::class, 'index']);
+    Route::get('/user/{id}', [UserController::class, 'show']);
+    Route::put('/user/{id}', [UserController::class, 'update']);
+});
+
+/*Login*/
+Route::post('/login', [LoginController::class, 'login']);
