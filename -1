@@ -1,6 +1,0 @@
-[49688] Log opened at 2025-05-17 13:06:30.740066
-[49688] [Config] DEBUG: Checking if trigger 'XDEBUG_TRIGGER' is enabled for mode 'debug'
-[49688] [Config] INFO: Trigger value for 'XDEBUG_TRIGGER' not found, falling back to 'XDEBUG_SESSION'
-[49688] [Config] INFO: Trigger value for 'XDEBUG_SESSION' not found, so not activating
-[49688] Log closed at 2025-05-17 13:06:30.742254
-

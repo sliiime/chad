@@ -14,8 +14,7 @@ class AddReactionType extends Migration
     public function up()
     {
         Schema::create('reaction_types', function (Blueprint $table){
-            $table->id();
-            $table->string('name')->nullable(false);
+            $table->string('name')->nullable(false)->primary();
             $table->string('label')->nullable(false);
             $table->boolean('is_active');
             $table->timestamps();
