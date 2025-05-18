@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Implementations;
 
 use App\Domain\Models\User;
 use App\Exceptions\Services\UniquenessViolationException;
+use App\Services\Contracts\UserServiceContract;
 use Illuminate\Support\Facades\Hash;
 
 
