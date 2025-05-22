@@ -71,7 +71,7 @@ class UserService implements UserServiceContract {
         return !User::query()->where('username', '=', $username)->exists();
     }
 
-    protected function resolveUser($user){
+    public function resolveUser($user): User{
         return $user instanceof User ? $user : User::query()->findOrFail($user);
     }
 }
