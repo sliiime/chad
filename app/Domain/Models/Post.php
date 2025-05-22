@@ -9,10 +9,15 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = ['posted_to', 'content'];
+    protected $dates = ['created_at', 'updated_at'];
 
     public function user(){
-        $this->belongsTo(User::class);
+        $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function reactions(){
+        return $this->morphToMany(Reaction::class, 'reactionable');
     }
 
 }

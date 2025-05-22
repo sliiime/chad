@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,10 +30,8 @@ Route::middleware('chad:api')->group(function(){
     Route::get('/user',      [UserController::class, 'index']);
     Route::get('/user/{id}', [UserController::class, 'show']);
     Route::put('/user/{id}', [UserController::class, 'update']);
-});
 
-Route::get('/debug-test', function(){
-    return 'slatt';
+    Route::apiResource('/post', PostController::class);
 });
 
 /*Login*/
