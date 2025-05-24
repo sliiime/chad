@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('reaction_type_id')->nullable(false);
             $table->foreign('reaction_type_id')
-                  ->references('name')
+                  ->references('label')
                   ->on('reaction_types');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('reactionable_id');
             $table->string('reactionable_type')->nullable(false);
-            $table->timestamp('created_at')->nullable(false);
+            $table->timestamps();
         });
     }
 

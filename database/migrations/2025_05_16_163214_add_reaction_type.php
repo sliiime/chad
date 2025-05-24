@@ -14,8 +14,8 @@ class AddReactionType extends Migration
     public function up()
     {
         Schema::create('reaction_types', function (Blueprint $table){
-            $table->string('name')->nullable(false)->primary();
-            $table->string('label')->nullable(false);
+            $table->string('name')->nullable(false);
+            $table->string('label')->nullable(false)->primary();
             $table->boolean('is_active');
             $table->timestamps();
         });
@@ -28,6 +28,7 @@ class AddReactionType extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('reactions');
         Schema::dropIfExists('reaction_types');
     }
 }
