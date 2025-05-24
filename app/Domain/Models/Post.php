@@ -12,10 +12,12 @@ class Post extends Model
     protected $fillable = ['posted_to', 'content'];
     protected $dates = ['created_at', 'updated_at'];
 
-    public function user(){
-        $this->belongsTo(User::class, 'created_by');
+    public function created_by(){
+        $this->belongsTo(User::class);
     }
-
+    public function posted_to(){
+        $this->belongsTo(User::class);
+    }
     public function reactions(){
         return $this->morphToMany(Reaction::class, 'reactionable');
     }
