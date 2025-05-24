@@ -2,14 +2,18 @@
 
 namespace App\Providers;
 
-use App\Services\Contracts\JwtServiceContract;
-use App\Services\Contracts\LoginServiceContract;
-use App\Services\Contracts\PostServiceContract;
-use App\Services\Contracts\UserServiceContract;
-use App\Services\Implementations\JwtService;
-use App\Services\Implementations\LoginService;
-use App\Services\Implementations\PostService;
-use App\Services\Implementations\UserService;
+use App\Domain\Repositories\Contracts\ReactionRepositoryContract;
+use App\Domain\Repositories\Implementations\ReactionRepository;
+use App\Domain\Services\Contracts\JwtServiceContract;
+use App\Domain\Services\Contracts\LoginServiceContract;
+use App\Domain\Services\Contracts\PostServiceContract;
+use App\Domain\Services\Contracts\ReactionServiceContract;
+use App\Domain\Services\Contracts\UserServiceContract;
+use App\Domain\Services\Implementations\JwtService;
+use App\Domain\Services\Implementations\LoginService;
+use App\Domain\Services\Implementations\PostService;
+use App\Domain\Services\Implementations\ReactionService;
+use App\Domain\Services\Implementations\UserService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
         LoginServiceContract::class => LoginService::class,
         JwtServiceContract::class => JwtService::class,
         PostServiceContract::class => PostService::class,
+        ReactionServiceContract::class => ReactionService::class,
+        ReactionRepositoryContract::class => ReactionRepository::class,
     ];
 
     public function register()

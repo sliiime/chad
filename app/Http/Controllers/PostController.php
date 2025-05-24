@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Contracts\PostServiceContract;
+use App\Domain\Enums\ReactionTypeEnum;
+use App\Domain\Models\Post;
+use App\Domain\Services\Contracts\PostServiceContract;
+use App\Domain\Services\Contracts\ReactionServiceContract;
+use App\Http\Requests\ReactionRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,6 +53,13 @@ class PostController extends Controller
     {
         $user = Auth::user();
         return $this->postService->show($this->postService->update($user, $post_id, $request->input()));
+    }
+
+    public function reaction(ReactionRequest $request, $post_id){
+        $user = Auth::user();
+
+        $reaction_type = $request->enum('reaction_type', ReactionTypeEnum::class);
+        return $this->postService->storeReaction($user->id, $post_id, $reaction_type);
     }
 
     /**

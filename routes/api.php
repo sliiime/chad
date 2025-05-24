@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ReactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,9 @@ Route::middleware('chad:api')->group(function(){
     Route::put('/user/{id}', [UserController::class, 'update']);
 
     Route::apiResource('/post', PostController::class);
+    Route::post('/post/{id}/reaction', [PostController::class, 'reaction']);
+
+    Route::apiResource('/reaction', ReactionController::class);
 });
 
 /*Login*/
