@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services\Implementations;
+namespace App\Domain\Services\Implementations;
 
 
 use App\Domain\Models\User;
-use App\Services\Contracts\JwtServiceContract;
+use App\Domain\Services\Contracts\JwtServiceContract;
 use Carbon\Carbon;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;

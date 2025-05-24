@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Domain\Services\Contracts\LoginServiceContract;
 use App\Http\Requests\LoginRequest;
-use App\Services\Contracts\LoginServiceContract;
 
 class LoginController extends Controller
 {

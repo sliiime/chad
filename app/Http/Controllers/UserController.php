@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Domain\Services\Contracts\UserServiceContract;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
-use App\Services\Contracts\UserServiceContract;
 
 class UserController extends Controller
 {

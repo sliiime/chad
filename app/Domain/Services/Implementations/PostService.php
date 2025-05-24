@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Services\Implementations;
+namespace App\Domain\Services\Implementations;
 
 use App\Domain\Models\Post;
-use App\Domain\Models\User;
+use App\Domain\Services\Contracts\PostServiceContract;
+use App\Domain\Services\Contracts\ReactionServiceContract;
+use App\Domain\Services\Contracts\UserServiceContract;
 use App\Exceptions\Exception400;
-use App\Services\Contracts\PostServiceContract;
-use App\Services\Contracts\UserServiceContract;
 use Carbon\Carbon;
 
 class PostService implements PostServiceContract
@@ -46,6 +46,13 @@ class PostService implements PostServiceContract
         $post->posted_to = $params['posted_to'] ?? $post->posted_to;
 
         $post->save();
+
+        return $post;
+    }
+
+    public function storeReaction(int $user_id, $post, $reaction_type){
+        $post = $this->resolvePost($post);
+        app(ReactionServiceContract::class)->store($user_id, $reaction_type, Post::class, $post->id);
 
         return $post;
     }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services\Implementations;
+namespace App\Domain\Services\Implementations;
 
 use App\Domain\Models\User;
+use App\Domain\Services\Contracts\JwtServiceContract;
+use App\Domain\Services\Contracts\LoginServiceContract;
 use App\Exceptions\Services\MissingKeyException;
-use App\Services\Contracts\JwtServiceContract;
-use App\Services\Contracts\LoginServiceContract;
 use Illuminate\Support\Facades\Hash;
 
 class LoginService implements LoginServiceContract {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Contracts;
+namespace App\Domain\Services\Contracts;
 
 interface LoginServiceContract {
     public function authenticatedUser(array $input);
